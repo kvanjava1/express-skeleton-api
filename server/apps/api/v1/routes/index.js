@@ -1,16 +1,9 @@
 import express from 'express';
+import userController from '../controllers/userController';
 
 const router = express.Router();
 
-router.get('/', function(req, res, next) {
-  return res.status(200).json({
-    "status" : "ok",
-    'url' : req.protocol + '://' + req.get('host') + req.originalUrl
-  });
-});
-
-router.get('/test-view', function(req, res, next) {
-  return res.render('api/v1/resources/views/layout');
-});
+router.get('/show/users', userController.showUsers);
+router.get('/show/view', userController.showView);
 
 module.exports = router;

@@ -4,7 +4,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import webRouteIndexV1 from './../apps/api/v1/routes/index';
+import apiRouteVers1 from '../apps/api/v1/routes/index';
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(webRouteIndexV1);
+app.use("/api/v1", apiRouteVers1);
 
 // view engine setup
 app.set('views', path.join(__dirname, './../apps'));

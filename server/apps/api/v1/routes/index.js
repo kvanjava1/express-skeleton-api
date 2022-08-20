@@ -2,9 +2,15 @@ import express from 'express';
 
 const router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('api/v1/resources/views/layout');
+  return res.status(200).json({
+    "status" : "ok",
+    'url' : req.protocol + '://' + req.get('host') + req.originalUrl
+  });
+});
+
+router.get('/test-view', function(req, res, next) {
+  return res.render('api/v1/resources/views/layout');
 });
 
 module.exports = router;

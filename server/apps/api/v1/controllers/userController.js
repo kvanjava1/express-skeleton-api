@@ -1,5 +1,5 @@
 exports.showUsers = (req, res) => {
-  let data = {
+  return res.json({
     "status" : "ok",
     "data" : [
       {
@@ -9,13 +9,12 @@ exports.showUsers = (req, res) => {
         "username" : "telo2"
       }
     ]
-  };
-
-  return res.json(data)
-            .status(200);
+  })
+  .status(200);
 };
 
 exports.showView = (req, res) => {
-  console.log(__dirname);
-  return res.render('api/v1/resources/views/ejs/layout')
+  return res.render(
+    'api/v1/resources/views/ejs/layout'
+  );
 }
